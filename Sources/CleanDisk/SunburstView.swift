@@ -123,7 +123,7 @@ struct SunburstView: View {
                     .minimumScaleFactor(0.7)
                 Text(formatBytes(focus.size))
                     .font(.title3.weight(.semibold)).monospacedDigit()
-                Text("\(focus.itemCount.formatted()) files")
+                Text("\(formatFileCount(focus.itemCount))")
                     .font(.caption).foregroundStyle(.secondary)
             }
         }

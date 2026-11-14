@@ -68,7 +68,7 @@ private struct ItemList: View {
             VStack(alignment: .leading, spacing: 0) {
                 VStack(alignment: .leading, spacing: 2) {
                     Text(state.title(for: focus)).font(.title3.weight(.semibold)).lineLimit(1)
-                    Text("\(formatBytes(focus.size))  ·  \(focus.itemCount.formatted()) files")
+                    Text("\(formatBytes(focus.size))  ·  \(formatFileCount(focus.itemCount))")
                         .font(.callout).foregroundStyle(.secondary).monospacedDigit()
                 }
                 .padding(12)

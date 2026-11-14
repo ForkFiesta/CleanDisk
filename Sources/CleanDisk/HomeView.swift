@@ -95,7 +95,7 @@ struct ScanningView: View {
                 ProgressView().progressViewStyle(.linear).frame(width: 420)
             }
 
-            Text("\(formatBytes(state.scanBytes))  ·  \(state.scanFiles.formatted()) files")
+            Text("\(formatBytes(state.scanBytes))  ·  \(formatFileCount(state.scanFiles))")
                 .font(.title3).monospacedDigit()
 
             Text(state.scanPath)

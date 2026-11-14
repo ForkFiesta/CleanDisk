@@ -56,7 +56,7 @@ final class FileNode: @unchecked Sendable {
             }
         }
         if foldedCount > 0 {
-            let folded = FileNode(name: "\(foldedCount.formatted()) smaller files", size: foldedSize,
+            let folded = FileNode(name: "\(foldedCount.formatted()) smaller \(foldedCount == 1 ? "file" : "files")", size: foldedSize,
                                   itemCount: foldedCount, isDirectory: false, isSynthetic: true)
             folded.parent = self
             let idx = kept.firstIndex { $0.size < foldedSize } ?? kept.count
@@ -106,4 +106,8 @@ final class FileNode: @unchecked Sendable {
 
 func formatBytes(_ bytes: Int64) -> String {
     ByteCountFormatter.string(fromByteCount: bytes, countStyle: .file)
+}
+
+func formatFileCount(_ count: Int) -> String {
+    "\(count.formatted()) \(count == 1 ? "file" : "files")"
 }
