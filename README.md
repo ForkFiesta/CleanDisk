@@ -6,6 +6,8 @@ need to the Trash.
 
 Native SwiftUI, no dependencies.
 
+![CleanDisk showing a sunburst map of /System/Library](docs/screenshot.png)
+
 ## Features
 
 - **Fast scanning** – multi-threaded `fts` walk; a ~2 million file boot disk scans in well under a minute on Apple silicon.
