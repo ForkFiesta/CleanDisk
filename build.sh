@@ -3,12 +3,19 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
-swift build -c release
+# UNIVERSAL=1 builds for both Apple silicon and Intel (used for releases).
+if [ "${UNIVERSAL:-}" = "1" ]; then
+    swift build -c release --arch arm64 --arch x86_64
+    BIN=.build/apple/Products/Release/CleanDisk
+else
+    swift build -c release
+    BIN=.build/release/CleanDisk
+fi
 
 APP=build/CleanDisk.app
 rm -rf "$APP"
 mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources"
-cp .build/release/CleanDisk "$APP/Contents/MacOS/CleanDisk"
+cp "$BIN" "$APP/Contents/MacOS/CleanDisk"
 cp Support/Info.plist "$APP/Contents/Info.plist"
 
 # App icon (generated once, cached in build/)

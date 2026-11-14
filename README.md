@@ -16,12 +16,20 @@ Native SwiftUI, no dependencies.
 - **Collector** – right-click items to collect them, review the total, then move them all to the Trash in one step. Nothing is ever deleted permanently.
 - **Accurate sizes** – reports allocated size on disk, counts hard links once, skips cloud-only placeholders, and shows space it could not see as "Hidden & inaccessible space".
 
-## Requirements
+## Install
 
-- macOS 14 or later
-- Xcode 15+ or the Swift 5.9+ toolchain (to build)
+Requires macOS 14 or later (Apple silicon or Intel).
 
-## Build and run
+1. Download the latest `CleanDisk-vX.Y.Z.zip` from the [Releases page](https://github.com/ForkFiesta/CleanDisk/releases/latest) and unzip it.
+2. Drag **CleanDisk.app** into your Applications folder.
+3. Open it. The app is not notarized by Apple, so macOS blocks it the first time:
+   open **System Settings → Privacy & Security**, scroll down and click **Open Anyway**.
+
+Prefer not to bypass Gatekeeper? Build it yourself – see below.
+
+## Build from source
+
+Needs Xcode 15+ or the Swift 5.9+ toolchain.
 
 ```sh
 git clone https://github.com/ForkFiesta/CleanDisk.git
